@@ -50,3 +50,13 @@ class ConexionMDB:
                 f"Ocurrio un fallo al insertar el  profesor a la coleccion {datos_documento}"
             )
         return resultado
+
+################## VER ALUMNOS EN SISTEMA ##################
+    def alumnos_sistema(self):
+        for x in self.alumnos.find():
+            print(x)
+
+################## VER PROFESORES EN SISTEMA ##################
+    def profesores_sistema(self):
+        for x in self.profesores.find():
+            print(x)

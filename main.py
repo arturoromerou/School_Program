@@ -31,9 +31,9 @@ def insert_student(cx):
         )
         print(f"se agrego satisfactoriamnete el alumno {student_name} con el id ", nuevo_st)
 
-        print("\n********************\n")
+        print("\n*************************************\n")
         print('Desea agregar otro Estudiante? [s] [n]')
-        print("\n**********************************\n")
+        print("\n*************************************\n")
         opcion = input('Digite su seleccion: ')
         opcion = opcion.lower()
 
@@ -43,7 +43,7 @@ def insert_student(cx):
         elif opcion == "n":
             continuar = False
             os.system("clear")
-            
+
 ############## AGREGAR PROFESORES A LA BD ##############
 def insert_teacher(cx):
     os.system("clear")
@@ -63,7 +63,7 @@ def insert_teacher(cx):
         )
         print(f"se agrego satisfactoriamnete el alumno {teacher_name} con el id ", nuevo_pf)
 
-        print("\n********************\n")
+        print("\n**********************************\n")
         print('Desea agregar otro Profesor? [s] [n]')
         print("\n**********************************\n")
         opcion = input('Digite su seleccion: ')
@@ -76,6 +76,42 @@ def insert_teacher(cx):
             continuar = False
             os.system("clear")
 
+############## VER ALUMNOS EN LA BD ##############
+def check_students(cx):
+    os.system("clear")
+    print("\n******************************************* LISTA DE ALUMNOS *******************************************\n")
+    cx.alumnos_sistema()
+    print("\n********************************************************************************************************\n")
+    print("\n[m] Menu Principal")
+    print("[s] Salir\n")
+    opcion = input('Digite su seleccion: ')
+    opcion = opcion.lower()
+
+    
+    if opcion == "m":
+        continuar = False
+        os.system("clear")
+    elif opcion == "s":
+        sys.exit()
+
+############## VER PROFESORES EN LA BD ##############
+def check_teachers(cx):
+    os.system("clear")
+    print("\n******************************************* LISTA DE PROFESORES *******************************************\n")
+    cx.profesores_sistema()
+    print("\n***********************************************************************************************************\n")
+    print("\n[m] Menu Principal")
+    print("[s] Salir\n")
+    opcion = input('Digite su seleccion: ')
+    opcion = opcion.lower()
+
+    
+    if opcion == "m":
+        continuar = False
+        os.system("clear")
+    elif opcion == "s":
+        sys.exit()
+
 ###################### MENU ADMINISTRADOR #######################        
 def menu_administrador(cx):
     os.system("clear")
@@ -84,8 +120,8 @@ def menu_administrador(cx):
         print("\n********** ADMINISTRADOR **********\n")
         print('[1] Agregar Estudiantes')
         print('[2] Agregar Profesores')
-        print('[3] Modificar estudiantes en el sistema')
-        print('[4] Eliminar estudiantes del sistema')
+        print('[3] Mostrar Estudiantes en el sistema')
+        print('[4] Mostrar Profesores en el sistema')
         print('\n[s] Salir del sistema')
         print("\n**********************************\n")
         opcion = input('Digite su seleccion: ')
@@ -95,10 +131,10 @@ def menu_administrador(cx):
             insert_student(cx)
         elif opcion == "2":
             insert_teacher(cx)
-        #elif opcion == "3":
-        #    #modificar_articulo_almacen(conexion_pg)
-        #elif opcion == "4":
-        #    #eliminar_articulo(conexion_pg)
+        elif opcion == "3":
+            check_students(cx)
+        elif opcion == "4":
+            check_teachers(cx)
         elif opcion == "s":
             sys.exit()
         #elif opcion == "b":
